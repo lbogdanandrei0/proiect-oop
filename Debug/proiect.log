@@ -1,0 +1,6 @@
+﻿proiect.obj : error LNK2019: unresolved external symbol _SDL_Init referenced in function _SDL_main
+proiect.obj : error LNK2019: unresolved external symbol _SDL_Quit referenced in function _SDL_main
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol _main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+D:\AC-ANUL-2\proiecyPoo\SDL2-devel-2.0.18-VC\SDL2-2.0.18\lib\x64\SDL2.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+D:\AC-ANUL-2\proiecyPoo\SDL2-devel-2.0.18-VC\SDL2-2.0.18\lib\x64\SDL2main.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+D:\AC-ANUL-2\ModelTest2POO\proiect\Debug\proiect.exe : fatal error LNK1120: 3 unresolved externals

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{5d9c6218-8d50-4c6a-9809-3a9fc2d447a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\model">
+      <UniqueIdentifier>{330b8caa-fb2a-48de-b1d7-d78386912932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\controller">
+      <UniqueIdentifier>{22cfb9b6-beb0-40a7-ad8d-5dd6e854ec23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils\stack">
+      <UniqueIdentifier>{c1aad960-005a-47bc-a1c2-c0c0f558a4e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils\list">
+      <UniqueIdentifier>{cfd33639-8e7f-47e7-9eaf-503f78f184cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils\list\linkedList">
+      <UniqueIdentifier>{98c2005f-9953-4bc4-a2dd-51c1002facc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils\base">
+      <UniqueIdentifier>{ddb8ea98-69a0-4018-90fa-5800407d3fb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\view">
+      <UniqueIdentifier>{8c204f39-3ecc-4aa4-8353-ded8ff0b6a41}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Source Files\utils\base</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>Source Files\utils\list\linkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>Source Files\utils\stack</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\model</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\view</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalController.cpp">
+      <Filter>Source Files\controller</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AbstractList.h">
+      <Filter>Source Files\utils\list</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructure.h">
+      <Filter>Source Files\utils\base</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedNode.h">
+      <Filter>Source Files\utils\base</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Source Files\utils\base</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>Source Files\utils\list\linkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Source Files\utils\stack</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Source Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalController.h">
+      <Filter>Source Files\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Source Files\view</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="g9244.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
