@@ -1,6 +1,6 @@
 #include "MainMenu.h"
 
-SDL_Surface* MainMenu::loadMainMenu(SDL_Surface* windowSurface, __int16 width, __int16 height) {
+SDL_Surface* MainMenu::loadMainMenu(SDL_Surface* windowSurface) {
 	this->menuSurface = windowSurface;
 	background = new GameObject();
 	return windowSurface;
@@ -8,7 +8,7 @@ SDL_Surface* MainMenu::loadMainMenu(SDL_Surface* windowSurface, __int16 width, _
 
 void MainMenu::renderButtons(SDL_Renderer* renderer) {
 	SDL_FillRect(this->menuSurface, NULL, SDL_MapRGB(this->menuSurface->format, 0x00, 0x00, 0x00));
-	background->loadTexture(renderer, "./mainMenuBackground.png");
+	background->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_MAIN_MENU + MAIN_MENU_BACKGROUND));
 	SDL_RenderCopy(renderer, background->getTexture(), NULL, NULL);
 	
 	loadButtons(renderer);
@@ -53,7 +53,7 @@ void MainMenu::loadButtons(SDL_Renderer* renderer) {
 	button1 = new GameObject(b1coords);
 	button2 = new GameObject(b2coords);
 	button3 = new GameObject(b3coords);
-	button1->loadTexture(renderer, "./playButton.png");
-	button2->loadTexture(renderer, "./settingsButton.png");
-	button3->loadTexture(renderer, "./exitButton.png");
+	button1->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_MAIN_MENU + MAIN_MENU_PLAY_BUTTON));
+	button2->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_MAIN_MENU + MAIN_MENU_SETTINGS_BUTTON));
+	button3->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_MAIN_MENU + MAIN_MENU_EXIT_BUTTON));
 }

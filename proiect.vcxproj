@@ -19,24 +19,32 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameView.cpp" />
     <ClCompile Include="GlobalController.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="PlayerModel.cpp" />
     <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="TextureHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractList.h" />
     <ClInclude Include="DataStructure.h" />
+    <ClInclude Include="GameController.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameView.h" />
     <ClInclude Include="GlobalController.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedNode.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="PlayerModel.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="TextureHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="g9244.png" />

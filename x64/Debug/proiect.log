@@ -1,6 +1,7 @@
-﻿  LinkedList.cpp
-  Main.cpp
-  Node.cpp
-  Stack.cpp
-  Generating Code...
+﻿  GameController.cpp
+D:\AC-ANUL-2\ModelTest2POO\proiect\GameController.cpp(20): warning C4172: returning address of local variable or temporary: frames
+D:\AC-ANUL-2\ModelTest2POO\proiect\GameController.cpp(48): warning C4172: returning address of local variable or temporary: frames
+D:\AC-ANUL-2\ModelTest2POO\proiect\GameController.cpp(13): warning C4172: returning address of local variable or temporary: frames
+D:\AC-ANUL-2\ModelTest2POO\proiect\GameController.cpp(29): warning C4172: returning address of local variable or temporary: frames
+D:\AC-ANUL-2\ModelTest2POO\proiect\GameController.cpp(39): warning C4172: returning address of local variable or temporary: frames
   proiect.vcxproj -> D:\AC-ANUL-2\ModelTest2POO\proiect\x64\Debug\proiect.exe

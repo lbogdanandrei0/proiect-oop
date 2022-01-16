@@ -11,7 +11,7 @@ private:
 public:
 	GameObject() : id(1), texture(nullptr) {};
 	GameObject(SDL_Rect a) : area(a), id(1), texture(nullptr) {};
-	SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path);
+	void setTexture(SDL_Texture* texture) { this->texture = texture; };
 	SDL_Rect* getArea() { return &area; }
 	SDL_Texture* getTexture() { return texture; }
 	inline __int32 getId() { return id; }
