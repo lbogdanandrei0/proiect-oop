@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+
 class PlayerModel : public GameObject {
 	__int8 health;
 	__int8 speed;

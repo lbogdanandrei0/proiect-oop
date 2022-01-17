@@ -3,63 +3,15 @@
 GameController::GameController(SDL_Renderer* renderer) {
 	this->renderer = renderer;
 	this->view = new GameView(renderer);
+	this->entityManager = new EntityManager(renderer);
+	this->entityManager->initPlayer();
 	gameIsOver = false;
 }
 
-SDL_Texture** loadUpAnimation(SDL_Renderer* renderer) {
-	SDL_Texture* frames[2];
-	frames[0] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_up_1.png");
-	frames[1] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_up_2.png");
-	return frames;
-}
-
-SDL_Texture** loadDownAnimation(SDL_Renderer* renderer) {
-	SDL_Texture* frames[2];
-	frames[0] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_down_1.png");
-	frames[1] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_down_2.png");
-	return frames;
-}
-
-SDL_Texture** loadRightAnimation(SDL_Renderer* renderer) {
-	SDL_Texture* frames[4];
-	frames[0] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_right_1.png");
-	frames[1] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_right_2.png");
-	frames[2] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_right_3.png");
-	frames[3] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_right_4.png");
-	return frames;
-}
-
-
-SDL_Texture** loadLeftAnimation(SDL_Renderer* renderer) {
-	SDL_Texture* frames[4];
-	frames[0] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_left_1.png");
-	frames[1] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_left_2.png");
-	frames[2] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_left_3.png");
-	frames[3] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_left_4.png");
-	return frames;
-}
-
-SDL_Texture** loadStandTextures(SDL_Renderer* renderer) {
-	SDL_Texture* frames[4];
-	frames[0] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_up.png");
-	frames[1] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_down.png");
-	frames[2] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_right.png");
-	frames[3] = TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_left.png");
-	return frames;
-}
-
-
 void GameController::init() {
-	player = new PlayerModel(648, 300);
-	player->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "player_up.png"));
-	player->loadUpAnimation(loadUpAnimation(renderer));
-	player->loadDownAnimation(loadDownAnimation(renderer));
-	player->loadRightAnimation(loadRightAnimation(renderer));
-	player->loadLeftAnimation(loadLeftAnimation(renderer));
-	player->loadStandTextures(loadStandTextures(renderer));
 	SDL_RenderClear(renderer);
 	view->renderFloor();
-	view->renderGameObject(player);
+	view->renderGameObject(this->entityManager->getPlayerModel());
 }
 
 __int32 GameController::run() {
@@ -73,40 +25,40 @@ __int32 GameController::run() {
 			if (event.type == SDL_KEYDOWN) {
 				switch (event.key.keysym.sym) {
 				case SDLK_UP:
-					player->moveUp();
+					this->entityManager->getPlayerModel()->moveUp();
 					break;
 				case SDLK_DOWN:
-					player->moveDown();
+					this->entityManager->getPlayerModel()->moveDown();
 					break;
 				case SDLK_LEFT:
-					player->moveLeft();
+					this->entityManager->getPlayerModel()->moveLeft();
 					break;
 				case SDLK_RIGHT:
-					player->moveRight();
+					this->entityManager->getPlayerModel()->moveRight();
 					break;
 				}
 			}
 			if (event.type == SDL_KEYUP) {
 				switch (event.key.keysym.sym) {
 				case SDLK_UP:
-					player->lookingUp();
+					this->entityManager->getPlayerModel()->lookingUp();
 					break;
 				case SDLK_DOWN:
-					player->lookingDown();
+					this->entityManager->getPlayerModel()->lookingDown();
 					break;
 				case SDLK_LEFT:
-					player->lookingLeft();
+					this->entityManager->getPlayerModel()->lookingLeft();
 					break;
 				case SDLK_RIGHT:
-					player->lookingRight();
+					this->entityManager->getPlayerModel()->lookingRight();
 					break;
 				}
 			}
 		}
-		player->update();
+		this->entityManager->getPlayerModel()->update();
 		SDL_RenderClear(renderer);
 		view->renderFloor();
-		view->renderGameObject(player);
+		view->renderGameObject(this->entityManager->getPlayerModel());
 		SDL_RenderPresent(renderer);
 	}
 	return 0;

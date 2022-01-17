@@ -3,11 +3,12 @@
 #include "SDL.h"
 #include "TextureHelper.h"
 #include "GameView.h"
-#include "PlayerModel.h"
+#include "EntityManager.h"
+
 class GameController {
 	SDL_Renderer* renderer;
 	GameView* view;
-	PlayerModel* player;
+	EntityManager* entityManager;
 	bool gameIsOver;
 public:
 	GameController() : renderer(nullptr), view(nullptr), gameIsOver(false) {};
