@@ -49,17 +49,33 @@ void EntityManager::handleCollisions() {
 		direction = this->playerModel->isColliding(*iterator->getData());
 		switch (direction)
 		{
-		case 1:
-			this->playerModel->getArea()->y += 5;
+		case COLLISION_UP:
+			this->playerModel->getArea()->y += 1;
 			break;
-		case 2:
-			this->playerModel->getArea()->x -= 5;
+		case COLLISION_UP_LEFT:
+			this->playerModel->getArea()->x += 1;
+			this->playerModel->getArea()->y += 1;
 			break;
-		case 3:
-			this->playerModel->getArea()->x += 5;
+		case COLLISION_UP_RIGHT:
+			this->playerModel->getArea()->x -= 1;
+			this->playerModel->getArea()->y += 1;
 			break;
-		case 4:
-			this->playerModel->getArea()->y -= 5;
+		case COLLISION_RIGHT:
+			this->playerModel->getArea()->x -= 1;
+			break;
+		case COLLISION_LEFT:
+			this->playerModel->getArea()->x += 1;
+			break;
+		case COLLISION_DOWN:
+			this->playerModel->getArea()->y -= 1;
+			break;
+		case COLLISION_DOWN_LEFT:
+			this->playerModel->getArea()->x += 1;
+			this->playerModel->getArea()->y -= 1;
+			break;
+		case COLLISION_DOWN_RIGHT:
+			this->playerModel->getArea()->x += 1;
+			this->playerModel->getArea()->y -= 1;
 			break;
 		default:
 			break;
@@ -83,4 +99,18 @@ void EntityManager::initPlayer() {
 	SDL_Texture** standTextures = this->playerView->loadStandTextures(this->renderer);
 	this->playerModel->loadStandTextures(standTextures);
 	this->playerModel->setTexture(standTextures[0]);
+	objects.add(playerModel);
+}
+
+StaticGameObject* EntityManager::addBox(__int32 x, __int32 y) {
+	SDL_Rect area;
+	area.x = x;
+	area.y = y;
+	area.w = 64;
+	area.h = 64;
+	StaticGameObject* box = new StaticGameObject(&area);
+	box->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "box.png"));
+	colliders->add(box);
+	objects.add(box);
+	return box;
 }

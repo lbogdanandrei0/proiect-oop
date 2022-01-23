@@ -18,21 +18,33 @@ __int8 CollidingGameObject::isColliding(CollidingGameObject other) {
 	__int32 otherXRight = other.collidingArea->x + other.collidingArea->w;
 	__int32 otherYDown = other.collidingArea->y + other.collidingArea->h;
 
-	if (contains(*other.getCollidingArea(), thisXLeft, thisYUp) && contains(*other.getCollidingArea(), thisXRight, thisYUp)) { //up
-		return 1;
+	if (contains(*other.getCollidingArea(), thisXLeft, thisYUp)) { //up
+		if (contains(*other.getCollidingArea(), thisXLeft, thisYDown)) {
+			return COLLISION_LEFT;
+		}
+		if (contains(*other.getCollidingArea(), thisXRight, thisYUp)) {
+			return COLLISION_UP;
+		}
+		return COLLISION_UP_LEFT;
 	}
 
 	if (contains(*other.getCollidingArea(), thisXRight, thisYUp)) { //right
-		return 2;
+		if (contains(*other.getCollidingArea(), thisXRight, thisYDown)) {
+			return COLLISION_RIGHT;
+		}
+		return COLLISION_UP_RIGHT;
 	}
 
-	if (contains(*other.getCollidingArea(), thisXLeft, thisYDown) && contains(*other.getCollidingArea(), thisXLeft, thisYUp)) { //left
-		return 3;
+	if (contains(*other.getCollidingArea(), thisXLeft, thisYDown)) { //left
+		if (contains(*other.getCollidingArea(), thisXRight, thisYDown)) {
+			return COLLISION_DOWN;
+		}
+		return COLLISION_DOWN_LEFT;
 	}
 
 	if (contains(*other.getCollidingArea(), thisXRight, thisYDown)) { //down
-		return 4;
+		return COLLISION_DOWN_RIGHT;
 	}
 
-	return 0;
+	return -1;
 }

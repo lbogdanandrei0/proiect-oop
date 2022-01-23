@@ -6,11 +6,13 @@ GameController::GameController(SDL_Renderer* renderer) {
 	this->entityManager = new EntityManager(renderer, &colliders);
 	this->entityManager->initPlayer();
 	this->entityManager->addWalls();
+	this->entityManager->addBox(200, 300);
 	gameIsOver = false;
 }
 
 void GameController::init() {
 	SDL_RenderClear(renderer);
+	visibleGameObjects = this->entityManager->getObjects();
 	view->renderFloor();
 	view->renderGameObject(this->entityManager->getPlayerModel());
 }
@@ -60,7 +62,11 @@ __int32 GameController::run() {
 		this->entityManager->handleCollisions();
 		SDL_RenderClear(renderer);
 		view->renderFloor();
-		view->renderGameObject(this->entityManager->getPlayerModel());
+		LinkedNode<GameObject*>* obj = visibleGameObjects.getHead();
+		while (obj != nullptr) {
+			view->renderGameObject(obj->getData());
+			obj = obj->getNext();
+		}
 		SDL_RenderPresent(renderer);
 	}
 	return 0;

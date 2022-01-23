@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractList.h" />
+    <ClInclude Include="BoxView.h" />
     <ClInclude Include="CollidingGameObject.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="EntityManager.h" />

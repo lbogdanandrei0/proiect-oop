@@ -140,6 +140,9 @@
     <ClInclude Include="Constants.h">
       <Filter>Source Files\utils</Filter>
     </ClInclude>
+    <ClInclude Include="BoxView.h">
+      <Filter>Source Files\view</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="g9244.png">

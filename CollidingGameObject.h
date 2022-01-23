@@ -1,5 +1,6 @@
 #pragma once
 #include "SDL.h"
+#include "Constants.h"
 class CollidingGameObject {
 	SDL_Rect* collidingArea; // trebuie initializat cu aria din GameObject
 public:

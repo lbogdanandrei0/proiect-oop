@@ -11,6 +11,7 @@ class GameController {
 	GameView* view;
 	EntityManager* entityManager;
 	LinkedList<CollidingGameObject*> colliders;
+	LinkedList<GameObject*> visibleGameObjects;
 	bool gameIsOver;
 public:
 	GameController() : renderer(nullptr), view(nullptr), gameIsOver(false) {};
