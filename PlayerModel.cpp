@@ -1,10 +1,7 @@
 #include "PlayerModel.h"
 
-PlayerModel::PlayerModel(__int32 x, __int32 y) : GameObject() {
+PlayerModel::PlayerModel(__int32 x, __int32 y, SDL_Rect* collidingArea) : MobileGameObject(10, collidingArea) {
 	this->health = 100;
-	this->speed = 10;
-	velocity.x = 0;
-	velocity.y = 0;
 	wasMovingUp = false;
 	wasMovingDown = false;
 	wasMovingLeft = false;
@@ -13,10 +10,6 @@ PlayerModel::PlayerModel(__int32 x, __int32 y) : GameObject() {
 	nextDownAnimation = 0;
 	nextRightAnimation = 0;
 	nextLeftAnimation = 0;
-	this->getArea()->x = x;
-	this->getArea()->y = y;
-	this->getArea()->w = 64;
-	this->getArea()->h = 64;
 }
 
 void PlayerModel::loadUpAnimation(SDL_Texture* animation[]) {
@@ -48,23 +41,6 @@ void PlayerModel::loadStandTextures(SDL_Texture* textures[]) {
 	this->standTexture[1] = textures[1];
 	this->standTexture[2] = textures[2];
 	this->standTexture[3] = textures[3];
-}
-
-
-void PlayerModel::moveUp() {
-	velocity.y = -this->speed;
-}
-
-void PlayerModel::moveDown() {
-	velocity.y = this->speed;
-}
-
-void PlayerModel::moveRight() {
-	velocity.x = this->speed;
-}
-
-void PlayerModel::moveLeft() {
-	velocity.x = -this->speed;
 }
 
 void PlayerModel::update() {

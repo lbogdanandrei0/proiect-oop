@@ -1,6 +1,8 @@
 #pragma once
 #include "AbstractList.h"
 #include "GameObject.h"
+#include "CollidingGameObject.h"
+
 
 template <typename T> class LinkedList : public AbstractList<T> {
 	__int32 listSize = 0;
@@ -22,3 +24,4 @@ public:
 
 template class LinkedList<int>;
 template class LinkedList<GameObject*>;
+template class LinkedList<CollidingGameObject*>;

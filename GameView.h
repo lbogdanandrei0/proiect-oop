@@ -1,12 +1,12 @@
 #pragma once
 #include <iostream>
 #include "SDL.h"
+#include "Constants.h"
 #include "TextureHelper.h"
 #include "GameObject.h"
 class GameView {
 	SDL_Renderer* renderer;
 	SDL_Texture* floor;
-	const std::string BOARD_TEXTURE = "board.png";
 
 public:
 	GameView(SDL_Renderer* renderer);

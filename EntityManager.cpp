@@ -1,13 +1,80 @@
 #include "EntityManager.h"
 
-EntityManager::EntityManager(SDL_Renderer* renderer) {
+EntityManager::EntityManager(SDL_Renderer* renderer, LinkedList<CollidingGameObject*>* colliders) {
+	this->colliders = colliders;
 	this->renderer = renderer;
 	this->playerModel = nullptr;
 	this->playerView = nullptr;
 }
 
+void EntityManager::addWalls() {
+	SDL_Rect top;
+	top.x = 0;
+	top.y = -10;
+	top.w = 1280;
+	top.h = 20;
+	StaticGameObject* topWall = new StaticGameObject(&top);
+	topWall->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "black.png"));
+	colliders->add(topWall);
+	SDL_Rect bottom;
+	bottom.x = 0;
+	bottom.y = 758;
+	bottom.w = 1280;
+	bottom.h = 10;
+	StaticGameObject* bottomWall = new StaticGameObject(&bottom);
+	bottomWall->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "black.png"));
+	colliders->add(bottomWall);
+	SDL_Rect right;
+	right.x = 1270;
+	right.y = 0;
+	right.w = 20;
+	right.h = 768;
+	StaticGameObject* rightWall = new StaticGameObject(&right);
+	rightWall->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "black.png"));
+	colliders->add(rightWall);
+	SDL_Rect left;
+	left.x = -10;
+	left.y = 0;
+	left.w = 20;
+	left.h = 768;
+	StaticGameObject* leftWall = new StaticGameObject(&left);
+	leftWall->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "black.png"));
+	colliders->add(leftWall);
+}
+
+void EntityManager::handleCollisions() {
+	__int8 direction;
+	LinkedNode<CollidingGameObject*>* iterator = colliders->getHead();
+	while (iterator != nullptr) {
+		direction = this->playerModel->isColliding(*iterator->getData());
+		switch (direction)
+		{
+		case 1:
+			this->playerModel->getArea()->y += 5;
+			break;
+		case 2:
+			this->playerModel->getArea()->x -= 5;
+			break;
+		case 3:
+			this->playerModel->getArea()->x += 5;
+			break;
+		case 4:
+			this->playerModel->getArea()->y -= 5;
+			break;
+		default:
+			break;
+		}
+		iterator = iterator->getNext();
+	}
+}
+
 void EntityManager::initPlayer() {
-	this->playerModel = new PlayerModel(600, 300);
+	SDL_Rect collidingArea;
+	collidingArea.x = 600;
+	collidingArea.y = 300;
+	collidingArea.w = 64;
+	collidingArea.h = 64;
+	this->playerModel = new PlayerModel(collidingArea.x, collidingArea.y, &collidingArea);
 	this->playerView = new PlayerView();
 	this->playerModel->loadUpAnimation(this->playerView->loadUpAnimation(this->renderer));
 	this->playerModel->loadDownAnimation(this->playerView->loadDownAnimation(this->renderer));

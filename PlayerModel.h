@@ -1,10 +1,8 @@
 #pragma once
-#include "GameObject.h"
+#include "MobileGameObject.h"
 
-class PlayerModel : public GameObject {
+class PlayerModel : public MobileGameObject {
 	__int8 health;
-	__int8 speed;
-	SDL_Point velocity;
 	SDL_Texture* upAnimation[2];
 	SDL_Texture* downAnimation[2];
 	SDL_Texture* leftAnimation[4];
@@ -19,19 +17,15 @@ class PlayerModel : public GameObject {
 	bool wasMovingRight;
 	bool wasMovingLeft;
 public:
-	PlayerModel(__int32 xPos, __int32 yPos);
+	PlayerModel(__int32 xPos, __int32 yPos, SDL_Rect* collidingArea);
 	void loadUpAnimation(SDL_Texture* animation[]);
 	void loadDownAnimation(SDL_Texture* animation[]);
 	void loadRightAnimation(SDL_Texture* animation[]);
 	void loadLeftAnimation(SDL_Texture* animation[]);
 	void loadStandTextures(SDL_Texture* textures[]);
-	void moveUp();
-	void moveDown();
-	void moveLeft();
-	void moveRight();
 	void lookingUp();
 	void lookingDown();
 	void lookingLeft();
 	void lookingRight();
-	void update();
+	virtual void update();
 };

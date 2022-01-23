@@ -4,11 +4,13 @@
 #include "TextureHelper.h"
 #include "GameView.h"
 #include "EntityManager.h"
+#include "LinkedList.h"
 
 class GameController {
 	SDL_Renderer* renderer;
 	GameView* view;
 	EntityManager* entityManager;
+	LinkedList<CollidingGameObject*> colliders;
 	bool gameIsOver;
 public:
 	GameController() : renderer(nullptr), view(nullptr), gameIsOver(false) {};

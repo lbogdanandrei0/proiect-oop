@@ -1,18 +1,15 @@
 #pragma once
 #include <SDL.h>
 #include <SDL_image.h>
+#include "Constants.h"
 #include "GameObject.h"
 #include "TextureHelper.h"
 
-const __int32 BUTTON_X_START = 452;
-const __int32 BUTTON_Y_START = 341;
 const __int32 BUTTON_WIDTH = 150;
 const __int32 BUTTON_HEIGHT = 60;
+const __int32 BUTTON_X_START = SCREEN_WIDTH / 2 - BUTTON_WIDTH / 2;
+const __int32 BUTTON_Y_START = SCREEN_HEIGHT / 2 - BUTTON_HEIGHT / 2;
 const __int8 BUTTON_MARGIN = 10;
-const std::string MAIN_MENU_BACKGROUND = "mainMenuBackground.png";
-const std::string MAIN_MENU_PLAY_BUTTON = "playButton.png";
-const std::string MAIN_MENU_SETTINGS_BUTTON = "settingsButton.png";
-const std::string MAIN_MENU_EXIT_BUTTON = "exitButton.png";
 
 class MainMenu {
 	SDL_Surface* menuSurface;

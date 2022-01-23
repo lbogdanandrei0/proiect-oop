@@ -3,8 +3,9 @@
 GameController::GameController(SDL_Renderer* renderer) {
 	this->renderer = renderer;
 	this->view = new GameView(renderer);
-	this->entityManager = new EntityManager(renderer);
+	this->entityManager = new EntityManager(renderer, &colliders);
 	this->entityManager->initPlayer();
+	this->entityManager->addWalls();
 	gameIsOver = false;
 }
 
@@ -56,6 +57,7 @@ __int32 GameController::run() {
 			}
 		}
 		this->entityManager->getPlayerModel()->update();
+		this->entityManager->handleCollisions();
 		SDL_RenderClear(renderer);
 		view->renderFloor();
 		view->renderGameObject(this->entityManager->getPlayerModel());

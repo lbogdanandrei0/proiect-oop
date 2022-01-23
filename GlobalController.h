@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <iostream>	
+#include "Constants.h"
 #include "MainMenu.h"
 #include "GameController.h"
 
@@ -16,8 +17,6 @@ class GlobalController {
 	bool exit;
 	__int32 gameStatus;
 public:
-	static const int SCREEN_WIDTH = 1024;
-	static const int SCREEN_HEIGHT = 768;
 
 	GlobalController();
 	void init();

@@ -75,13 +75,19 @@
     <ClCompile Include="EntityManager.cpp">
       <Filter>Source Files\controller</Filter>
     </ClCompile>
+    <ClCompile Include="CollidingGameObject.cpp">
+      <Filter>Source Files\model</Filter>
+    </ClCompile>
+    <ClCompile Include="MobileGameObject.cpp">
+      <Filter>Source Files\model</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticGameObject.cpp">
+      <Filter>Source Files\model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractList.h">
       <Filter>Source Files\utils\list</Filter>
-    </ClInclude>
-    <ClInclude Include="DataStructure.h">
-      <Filter>Source Files\utils\base</Filter>
     </ClInclude>
     <ClInclude Include="LinkedNode.h">
       <Filter>Source Files\utils\base</Filter>
@@ -121,6 +127,18 @@
     </ClInclude>
     <ClInclude Include="EntityManager.h">
       <Filter>Source Files\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="CollidingGameObject.h">
+      <Filter>Source Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticGameObject.h">
+      <Filter>Source Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="MobileGameObject.h">
+      <Filter>Source Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Source Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

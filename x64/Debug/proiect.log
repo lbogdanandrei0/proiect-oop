@@ -1,16 +1,115 @@
-﻿  EntityManager.cpp
-  GameController.cpp
-  GameObject.cpp
+﻿  GameController.cpp
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(25): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=int
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<int>::add'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(25): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=int
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<int>::addLast'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(26): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=GameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<GameObject *>::add'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(26): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=GameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<GameObject *>::addLast'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(27): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=CollidingGameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<CollidingGameObject *>::add'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(27): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=CollidingGameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<CollidingGameObject *>::addLast'
   GameView.cpp
   GlobalController.cpp
-  LinkedList.cpp
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(25): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=int
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<int>::add'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(25): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=int
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<int>::addLast'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(26): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=GameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<GameObject *>::add'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(26): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=GameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<GameObject *>::addLast'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(27): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=CollidingGameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<CollidingGameObject *>::add'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(27): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=CollidingGameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<CollidingGameObject *>::addLast'
   Main.cpp
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(25): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=int
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<int>::add'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(25): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=int
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<int>::addLast'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(26): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=GameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<GameObject *>::add'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(26): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=GameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<GameObject *>::addLast'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(27): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=CollidingGameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<CollidingGameObject *>::add'
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(27): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
+          with
+          [
+              T=CollidingGameObject *
+          ]
+D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<CollidingGameObject *>::addLast'
   MainMenu.cpp
-  PlayerModel.cpp
   Generating Code...
-D:\AC-ANUL-2\ModelTest2POO\proiect\PlayerView.h(19): warning C4172: returning address of local variable or temporary: frames
-D:\AC-ANUL-2\ModelTest2POO\proiect\PlayerView.h(37): warning C4172: returning address of local variable or temporary: frames
-D:\AC-ANUL-2\ModelTest2POO\proiect\PlayerView.h(12): warning C4172: returning address of local variable or temporary: frames
-D:\AC-ANUL-2\ModelTest2POO\proiect\PlayerView.h(28): warning C4172: returning address of local variable or temporary: frames
-D:\AC-ANUL-2\ModelTest2POO\proiect\PlayerView.h(46): warning C4172: returning address of local variable or temporary: frames
   proiect.vcxproj -> D:\AC-ANUL-2\ModelTest2POO\proiect\x64\Debug\proiect.exe
