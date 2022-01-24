@@ -10,7 +10,7 @@ void GlobalController::init() {
 	window = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_HIDDEN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	IMG_Init(IMG_INIT_PNG);
-	mainMenu.loadMainMenu(SDL_GetWindowSurface(window), SCREEN_WIDTH, SCREEN_HEIGHT);
+	mainMenu.loadMainMenu(SDL_GetWindowSurface(window));
 	mainMenu.renderButtons(this->renderer);
 }
 
@@ -32,7 +32,12 @@ void GlobalController::run() {
 					std::cout << buttonClicked << "\n";
 					switch (buttonClicked) {
 					case 1:
-						//play
+						gamecontroller = new GameController(renderer);
+						gamecontroller->init();
+						gameStatus = gamecontroller->run();
+						if (gameStatus == -1) {
+							exit = true;
+						}
 						break;
 					case 2:
 						//settings

@@ -1,9 +1,7 @@
 #include "GameObject.h"
-
-SDL_Texture* GameObject::loadTexture(SDL_Renderer* renderer, const char* path) {
-	SDL_Surface* surface = IMG_Load(path);
-	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-	SDL_FreeSurface(surface);
-	this->texture = texture;
-	return this->texture;
+GameObject::GameObject(SDL_Rect* area) {
+	this->area.x = area->x;
+	this->area.y = area->y;
+	this->area.w = area->w;
+	this->area.h = area->h;
 }

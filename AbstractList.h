@@ -7,11 +7,11 @@ protected:
 	LinkedNode<T>* head;
 	LinkedNode<T>* tail;
 public:
-	T getHead() {
-		return this->head->getData();
+	LinkedNode<T>* getHead() {
+		return this->head;
 	}
-	T getTail() {
-		return this->tail->getData();
+	LinkedNode<T>* getTail() {
+		return this->tail;
 	}
 	void map(T(*func)(T)) {
 		LinkedNode<T>* iterator = this->head;
