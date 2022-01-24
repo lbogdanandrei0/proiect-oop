@@ -8,12 +8,12 @@ GameView::GameView(SDL_Renderer* renderer) {
 void GameView::renderTexture(SDL_Texture* texture) {
 	SDL_RenderCopy(renderer, texture, NULL, NULL);
 }
-void GameView::renderTextureE(SDL_Texture* texture, SDL_Rect* area) {
-	SDL_RenderCopy(renderer, texture, NULL, area);
+void GameView::renderTextureE(SDL_Texture* texture, SDL_Rect* area, double rotation) {
+	SDL_RenderCopyEx(renderer, texture, NULL, area, rotation, NULL, SDL_FLIP_NONE);
 }
 
 void GameView::renderGameObject(GameObject* object) {
-	renderTextureE(object->getTexture(), object->getArea());
+	renderTextureE(object->getTexture(), object->getArea(), object->getRotation());
 }
 
 void GameView::renderFloor() {

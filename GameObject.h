@@ -7,6 +7,7 @@ private:
 	__int32 id;
 	SDL_Rect area;
 	SDL_Texture* texture;
+	double rotation;
 public:
 	GameObject() : id(1), texture(nullptr) {};
 	GameObject(SDL_Rect* a);
@@ -14,4 +15,6 @@ public:
 	SDL_Rect* getArea() { return &area; }
 	SDL_Texture* getTexture() { return texture; }
 	inline __int32 getId() { return id; }
+	void setRotation(double rotation) { this->rotation = rotation; }
+	double getRotation() { return rotation; }
 };

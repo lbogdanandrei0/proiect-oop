@@ -50,32 +50,32 @@ void EntityManager::handleCollisions() {
 		switch (direction)
 		{
 		case COLLISION_UP:
-			this->playerModel->getArea()->y += 1;
+			this->playerModel->getArea()->y += 10;
 			break;
 		case COLLISION_UP_LEFT:
-			this->playerModel->getArea()->x += 1;
-			this->playerModel->getArea()->y += 1;
+			this->playerModel->getArea()->x += 5;
+			this->playerModel->getArea()->y += 5;
 			break;
 		case COLLISION_UP_RIGHT:
-			this->playerModel->getArea()->x -= 1;
-			this->playerModel->getArea()->y += 1;
+			this->playerModel->getArea()->x -= 5;
+			this->playerModel->getArea()->y += 5;
 			break;
 		case COLLISION_RIGHT:
-			this->playerModel->getArea()->x -= 1;
+			this->playerModel->getArea()->x -= 10;
 			break;
 		case COLLISION_LEFT:
-			this->playerModel->getArea()->x += 1;
+			this->playerModel->getArea()->x += 10;
 			break;
 		case COLLISION_DOWN:
-			this->playerModel->getArea()->y -= 1;
+			this->playerModel->getArea()->y -= 10;
 			break;
 		case COLLISION_DOWN_LEFT:
-			this->playerModel->getArea()->x += 1;
-			this->playerModel->getArea()->y -= 1;
+			this->playerModel->getArea()->x += 5;
+			this->playerModel->getArea()->y -= 5;
 			break;
 		case COLLISION_DOWN_RIGHT:
-			this->playerModel->getArea()->x += 1;
-			this->playerModel->getArea()->y -= 1;
+			this->playerModel->getArea()->x -= 5;
+			this->playerModel->getArea()->y -= 5;
 			break;
 		default:
 			break;
@@ -100,6 +100,7 @@ void EntityManager::initPlayer() {
 	this->playerModel->loadStandTextures(standTextures);
 	this->playerModel->setTexture(standTextures[0]);
 	objects.add(playerModel);
+	movingObjects.add(playerModel);
 }
 
 StaticGameObject* EntityManager::addBox(__int32 x, __int32 y) {
@@ -113,4 +114,23 @@ StaticGameObject* EntityManager::addBox(__int32 x, __int32 y) {
 	colliders->add(box);
 	objects.add(box);
 	return box;
+}
+
+void EntityManager::fireBullet(__int32 xOrigin, __int32 yOrigin, __int32 xDestination, __int32 yDestination) {
+	SDL_Point origin;
+	SDL_Point destination;
+	SDL_Rect collidingArea;
+	origin.x = xOrigin;
+	origin.y = yOrigin;
+	destination.x = xDestination;
+	destination.y = yDestination;
+	collidingArea.x = xOrigin;
+	collidingArea.y = yOrigin;
+	collidingArea.w = 64;
+	collidingArea.h = 12;
+
+	BulletModel* bullet = new BulletModel(&collidingArea, &origin, &destination);
+	bullet->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "bullet1.png"));
+	objects.add(bullet);
+	movingObjects.add(bullet);
 }

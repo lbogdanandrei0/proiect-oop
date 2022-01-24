@@ -84,6 +84,9 @@
     <ClCompile Include="StaticGameObject.cpp">
       <Filter>Source Files\model</Filter>
     </ClCompile>
+    <ClCompile Include="BulletModel.cpp">
+      <Filter>Source Files\model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractList.h">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="BoxView.h">
       <Filter>Source Files\view</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletModel.h">
+      <Filter>Source Files\model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

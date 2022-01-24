@@ -4,9 +4,9 @@
 class MobileGameObject : public StaticGameObject {
 protected:
 	SDL_Point velocity;
-	__int32 speed;
+	double speed;
 public:
-	MobileGameObject(__int32 speed, SDL_Rect* collidingArea);
+	MobileGameObject(double speed, SDL_Rect* collidingArea);
 	void moveUp();
 	void moveDown();
 	void moveLeft();

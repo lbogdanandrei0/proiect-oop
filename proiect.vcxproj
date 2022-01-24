@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BulletModel.cpp" />
     <ClCompile Include="CollidingGameObject.cpp" />
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="GameController.cpp" />
@@ -38,6 +39,7 @@
   <ItemGroup>
     <ClInclude Include="AbstractList.h" />
     <ClInclude Include="BoxView.h" />
+    <ClInclude Include="BulletModel.h" />
     <ClInclude Include="CollidingGameObject.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="EntityManager.h" />

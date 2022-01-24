@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <chrono>
+#include <thread>
 #include "SDL.h"
 #include "TextureHelper.h"
 #include "GameView.h"
@@ -18,4 +20,7 @@ public:
 	GameController(SDL_Renderer* renderer);
 	void init();
 	__int32 run();
+	__int32 handleInput();
+	void update();
+	void render();
 };

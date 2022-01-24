@@ -1,6 +1,6 @@
 #include "MobileGameObject.h"
 
-MobileGameObject::MobileGameObject(__int32 speed, SDL_Rect* collidingArea) : StaticGameObject(collidingArea) {
+MobileGameObject::MobileGameObject(double speed, SDL_Rect* collidingArea) : StaticGameObject(collidingArea) {
 	this->speed = speed;
 	velocity.x = 0;
 	velocity.y = 0;

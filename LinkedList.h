@@ -2,6 +2,7 @@
 #include "AbstractList.h"
 #include "GameObject.h"
 #include "CollidingGameObject.h"
+#include "MobileGameObject.h"
 
 
 template <typename T> class LinkedList : public AbstractList<T> {
@@ -25,3 +26,4 @@ public:
 template class LinkedList<int>;
 template class LinkedList<GameObject*>;
 template class LinkedList<CollidingGameObject*>;
+template class LinkedList<MobileGameObject*>;

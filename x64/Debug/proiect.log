@@ -1,38 +1,4 @@
-﻿  GameController.cpp
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(25): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
-          with
-          [
-              T=int
-          ]
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<int>::add'
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(25): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
-          with
-          [
-              T=int
-          ]
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<int>::addLast'
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(26): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
-          with
-          [
-              T=GameObject *
-          ]
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<GameObject *>::add'
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(26): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
-          with
-          [
-              T=GameObject *
-          ]
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<GameObject *>::addLast'
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(27): warning C4661: 'T LinkedList<T>::add(T)': no suitable definition provided for explicit template instantiation request
-          with
-          [
-              T=CollidingGameObject *
-          ]
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(11): message : see declaration of 'LinkedList<CollidingGameObject *>::add'
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(27): warning C4661: 'T LinkedList<T>::addLast(T)': no suitable definition provided for explicit template instantiation request
-          with
-          [
-              T=CollidingGameObject *
-          ]
-D:\AC-ANUL-2\ModelTest2POO\proiect\LinkedList.h(12): message : see declaration of 'LinkedList<CollidingGameObject *>::addLast'
+﻿  BulletModel.cpp
+D:\AC-ANUL-2\ModelTest2POO\proiect\BulletModel.cpp(8,31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\AC-ANUL-2\ModelTest2POO\proiect\BulletModel.cpp(13,82): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   proiect.vcxproj -> D:\AC-ANUL-2\ModelTest2POO\proiect\x64\Debug\proiect.exe

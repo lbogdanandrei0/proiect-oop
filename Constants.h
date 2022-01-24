@@ -1,8 +1,11 @@
 #pragma once
 #include <iostream>
 
+const double PI = 3.1415;
+
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 768;
+const int FRAMERATE = 1000 / 144;
 
 const std::string MAIN_MENU_BACKGROUND = "mainMenuBackground.png";
 const std::string MAIN_MENU_PLAY_BUTTON = "playButton.png";

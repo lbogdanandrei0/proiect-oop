@@ -12,6 +12,6 @@ public:
 	GameView(SDL_Renderer* renderer);
 	void renderFloor();
 	void renderTexture(SDL_Texture* texture);
-	void renderTextureE(SDL_Texture* texture, SDL_Rect* area);
+	void renderTextureE(SDL_Texture* texture, SDL_Rect* area, double rotation);
 	void renderGameObject(GameObject* object);
 };
