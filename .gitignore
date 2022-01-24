@@ -7,3 +7,10 @@
 .history/
 *.vsix
 .vs/*
+*.tlog
+*.idb
+*.pdb
+*.log
+*.o
+*.obj
+*.ilk

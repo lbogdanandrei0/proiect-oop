@@ -1,9 +1,23 @@
 #include "GameObject.h"
+__int32 GameObject::idGenerator = 0;
 
-SDL_Texture* GameObject::loadTexture(SDL_Renderer* renderer, const char* path) {
-	SDL_Surface* surface = IMG_Load(path);
-	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
-	SDL_FreeSurface(surface);
-	this->texture = texture;
-	return this->texture;
+GameObject::GameObject() {
+	this->id = ++idGenerator;
+	this->area.x = 0;
+	this->area.y = 0;
+	this->area.w = 0;
+	this->area.h = 0;
+	this->texture = nullptr;
+	this->rotation = 0;
+}
+
+
+GameObject::GameObject(SDL_Rect* area) {
+	this->id = ++idGenerator;
+	this->area.x = area->x;
+	this->area.y = area->y;
+	this->area.w = area->w;
+	this->area.h = area->h;
+	this->texture = nullptr;
+	this->rotation = 0;
 }
