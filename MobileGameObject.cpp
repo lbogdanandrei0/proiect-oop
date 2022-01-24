@@ -4,6 +4,7 @@ MobileGameObject::MobileGameObject(double speed, SDL_Rect* collidingArea) : Stat
 	this->speed = speed;
 	velocity.x = 0;
 	velocity.y = 0;
+	this->setAbilityToMove(true);
 }
 
 void MobileGameObject::moveUp() {

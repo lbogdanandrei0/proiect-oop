@@ -14,6 +14,8 @@ class GameController {
 	EntityManager* entityManager;
 	LinkedList<CollidingGameObject*> colliders;
 	LinkedList<GameObject*> visibleGameObjects;
+	std::chrono::duration<double> enemySpawnDelay;
+	std::chrono::system_clock::time_point lastEnemyTimestamp;
 	bool gameIsOver;
 public:
 	GameController() : renderer(nullptr), view(nullptr), gameIsOver(false) {};

@@ -1,6 +1,10 @@
 #include "BulletModel.h"
 
-BulletModel::BulletModel(SDL_Rect* collidingArea, SDL_Point* origin, SDL_Point* destination) : MobileGameObject(1, collidingArea) {
+BulletModel::BulletModel(SDL_Rect* collidingArea, SDL_Point* origin, SDL_Point* destination) : MobileGameObject(5, collidingArea) {
+	this->setDamage(10);
+	this->setHealth(5);
+	this->setTakeBulletDamage(false);
+	this->setTakeEnemyDamage(false);
 	this->origin.x = origin->x;
 	this->origin.y = origin->y;
 	if (origin->y < destination->y) {

@@ -8,6 +8,8 @@ GameController::GameController(SDL_Renderer* renderer) {
 	this->entityManager->addWalls();
 	this->entityManager->addBox(200, 300);
 	this->entityManager->addBox(400, 300);
+	enemySpawnDelay = std::chrono::seconds(2);
+	lastEnemyTimestamp = std::chrono::system_clock::now();
 	gameIsOver = false;
 }
 
@@ -89,6 +91,11 @@ void GameController::update() {
 		m = m->getNext();
 	}
 	this->entityManager->handleCollisions();
+	this->entityManager->removeDeadEntities();
+	if (std::chrono::duration<double>(std::chrono::system_clock::now() - lastEnemyTimestamp) > enemySpawnDelay) {
+		this->entityManager->addEnemy(100, 100);
+		this->lastEnemyTimestamp = std::chrono::system_clock::now();
+	}
 }
 void GameController::render() {
 	SDL_RenderClear(renderer);
