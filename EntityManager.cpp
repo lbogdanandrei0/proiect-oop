@@ -120,13 +120,13 @@ void EntityManager::fireBullet(__int32 xOrigin, __int32 yOrigin, __int32 xDestin
 	SDL_Point origin;
 	SDL_Point destination;
 	SDL_Rect collidingArea;
-	origin.x = xOrigin;
-	origin.y = yOrigin;
+	origin.x = xOrigin + 32;
+	origin.y = yOrigin + 32;
 	destination.x = xDestination;
 	destination.y = yDestination;
-	collidingArea.x = xOrigin;
-	collidingArea.y = yOrigin;
-	collidingArea.w = 64;
+	collidingArea.x = xOrigin + 32;
+	collidingArea.y = yOrigin + 32;
+	collidingArea.w = 32;
 	collidingArea.h = 12;
 
 	BulletModel* bullet = new BulletModel(&collidingArea, &origin, &destination);

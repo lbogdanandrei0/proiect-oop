@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-const double PI = 3.1415;
+const double PI = 3.14159265359;
 
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 768;
