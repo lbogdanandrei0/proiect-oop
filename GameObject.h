@@ -9,7 +9,8 @@ private:
 	SDL_Texture* texture;
 	double rotation;
 public:
-	GameObject() : id(1), texture(nullptr) {};
+	static __int32 idGenerator;
+	GameObject();
 	GameObject(SDL_Rect* a);
 	void setTexture(SDL_Texture* texture) { this->texture = texture; };
 	SDL_Rect* getArea() { return &area; }

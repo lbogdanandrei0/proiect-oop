@@ -11,6 +11,7 @@ public:
 	LinkedList() { this->head = nullptr; this->tail = nullptr; listSize = 0; }
 	T add(T toAdd);
 	T addLast(T toAdd);
+	void deleteNode(LinkedNode<T>* node);
 	inline __int32 size() { return listSize; }
 	void print() {
 		std::cout << "\n";

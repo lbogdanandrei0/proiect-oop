@@ -1,7 +1,9 @@
 #include "PlayerModel.h"
 
 PlayerModel::PlayerModel(__int32 x, __int32 y, SDL_Rect* collidingArea) : MobileGameObject(10, collidingArea) {
-	this->health = 100;
+	this->setTakeBulletDamage(false);
+	this->setTakeEnemyDamage(true);
+	this->setHealth(100);
 	wasMovingUp = false;
 	wasMovingDown = false;
 	wasMovingLeft = false;

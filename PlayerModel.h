@@ -2,7 +2,6 @@
 #include "MobileGameObject.h"
 
 class PlayerModel : public MobileGameObject {
-	__int8 health;
 	SDL_Texture* upAnimation[2];
 	SDL_Texture* downAnimation[2];
 	SDL_Texture* leftAnimation[4];

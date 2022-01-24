@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="BulletModel.cpp" />
     <ClCompile Include="CollidingGameObject.cpp" />
+    <ClCompile Include="EnemyModel.cpp" />
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -42,6 +43,7 @@
     <ClInclude Include="BulletModel.h" />
     <ClInclude Include="CollidingGameObject.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="EnemyModel.h" />
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameObject.h" />

@@ -44,43 +44,87 @@ void EntityManager::addWalls() {
 
 void EntityManager::handleCollisions() {
 	__int8 direction;
+	ids.reset();
 	LinkedNode<CollidingGameObject*>* iterator = colliders->getHead();
 	while (iterator != nullptr) {
-		direction = this->playerModel->isColliding(*iterator->getData());
-		switch (direction)
-		{
-		case COLLISION_UP:
-			this->playerModel->getArea()->y += 10;
-			break;
-		case COLLISION_UP_LEFT:
-			this->playerModel->getArea()->x += 5;
-			this->playerModel->getArea()->y += 5;
-			break;
-		case COLLISION_UP_RIGHT:
-			this->playerModel->getArea()->x -= 5;
-			this->playerModel->getArea()->y += 5;
-			break;
-		case COLLISION_RIGHT:
-			this->playerModel->getArea()->x -= 10;
-			break;
-		case COLLISION_LEFT:
-			this->playerModel->getArea()->x += 10;
-			break;
-		case COLLISION_DOWN:
-			this->playerModel->getArea()->y -= 10;
-			break;
-		case COLLISION_DOWN_LEFT:
-			this->playerModel->getArea()->x += 5;
-			this->playerModel->getArea()->y -= 5;
-			break;
-		case COLLISION_DOWN_RIGHT:
-			this->playerModel->getArea()->x -= 5;
-			this->playerModel->getArea()->y -= 5;
-			break;
-		default:
-			break;
+		LinkedNode<CollidingGameObject*>* other = colliders->getHead();
+		while (other != nullptr) {
+			if (iterator != other) {
+				direction = iterator->getData()->isColliding(*other->getData());
+				if (direction != -1) {
+					if (iterator->getData()->getCanMove() == true && other->getData()->getCanMove() == false) {
+						MobileGameObject* m = static_cast<MobileGameObject*>(iterator->getData());
+						if (!m->takeBulletDamage() && !m->takeEnemyDamage()) {
+							ids[m->getId()] = 1;
+						}
+						else {
+							switch (direction)
+							{
+							case COLLISION_UP:
+								m->getArea()->y += 10;
+								break;
+							case COLLISION_UP_LEFT:
+								m->getArea()->x += 5;
+								m->getArea()->y += 5;
+								break;
+							case COLLISION_UP_RIGHT:
+								m->getArea()->x -= 5;
+								m->getArea()->y += 5;
+								break;
+							case COLLISION_RIGHT:
+								m->getArea()->x -= 10;
+								break;
+							case COLLISION_LEFT:
+								m->getArea()->x += 10;
+								break;
+							case COLLISION_DOWN:
+								m->getArea()->y -= 10;
+								break;
+							case COLLISION_DOWN_LEFT:
+								m->getArea()->x += 5;
+								m->getArea()->y -= 5;
+								break;
+							case COLLISION_DOWN_RIGHT:
+								m->getArea()->x -= 5;
+								m->getArea()->y -= 5;
+								break;
+							default:
+								break;
+							}
+						}
+					}
+					else {
+						if (other->getData()->takeBulletDamage()) {
+							other->getData()->takeDamage(iterator->getData()->getDamage());
+							if (other->getData()->getHealth() <= 0) {
+								StaticGameObject* m = static_cast<StaticGameObject*>(other->getData());
+								ids[m->getId()] = 1;
+								colliders->deleteNode(other);
+							}
+						}
+					}
+				}
+			}
+			other = other->getNext();
 		}
 		iterator = iterator->getNext();
+	}
+}
+
+void EntityManager::removeDeadEntities() {
+	LinkedNode<GameObject*>* iterator = objects.getHead();
+	LinkedNode<MobileGameObject*>* iterator2 = movingObjects.getHead();
+	while (iterator != nullptr) {
+		if (ids[iterator->getData()->getId()]) {
+			objects.deleteNode(iterator);
+		}
+		iterator = iterator->getNext();
+	}
+	while (iterator2 != nullptr) {
+		if (ids[iterator2->getData()->getId()]) {
+			movingObjects.deleteNode(iterator2);
+		}
+		iterator2 = iterator2->getNext();
 	}
 }
 
@@ -99,11 +143,12 @@ void EntityManager::initPlayer() {
 	SDL_Texture** standTextures = this->playerView->loadStandTextures(this->renderer);
 	this->playerModel->loadStandTextures(standTextures);
 	this->playerModel->setTexture(standTextures[0]);
+	colliders->add(playerModel);
 	objects.add(playerModel);
 	movingObjects.add(playerModel);
 }
 
-StaticGameObject* EntityManager::addBox(__int32 x, __int32 y) {
+void EntityManager::addBox(__int32 x, __int32 y) {
 	SDL_Rect area;
 	area.x = x;
 	area.y = y;
@@ -113,7 +158,20 @@ StaticGameObject* EntityManager::addBox(__int32 x, __int32 y) {
 	box->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "box.png"));
 	colliders->add(box);
 	objects.add(box);
-	return box;
+}
+
+void EntityManager::addEnemy(__int32 x, __int32 y) {
+	SDL_Point playerCoords;
+	SDL_Rect area;
+	area.x = x;
+	area.y = y;
+	area.w = 32;
+	area.h = 32;
+	EnemyModel* enemy = new EnemyModel(this->playerModel->getArea(), &area);
+	enemy->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "enemy1.png"));
+	colliders->add(enemy);
+	objects.add(enemy);
+	movingObjects.add(enemy);
 }
 
 void EntityManager::fireBullet(__int32 xOrigin, __int32 yOrigin, __int32 xDestination, __int32 yDestination) {
@@ -131,6 +189,7 @@ void EntityManager::fireBullet(__int32 xOrigin, __int32 yOrigin, __int32 xDestin
 
 	BulletModel* bullet = new BulletModel(&collidingArea, &origin, &destination);
 	bullet->setTexture(TextureHelper::loadTexture(renderer, TextureHelper::ASSETS_GAME + "bullet1.png"));
+	colliders->add(bullet);
 	objects.add(bullet);
 	movingObjects.add(bullet);
 }
